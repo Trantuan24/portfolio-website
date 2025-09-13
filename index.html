@@ -31,7 +31,7 @@
                         <a href="#skills" class="nav__link">Skills</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#education" class="nav__link">Education</a>
+                        <a href="#qualifications" class="nav__link">Qualifications</a>
                     </li>
                     <li class="nav__item">
                         <a href="#projects" class="nav__link">Projects</a>
@@ -461,138 +461,104 @@
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section class="qualification section" id="education">
-            <h2 class="section__title">Học vấn</h2>
-            <span class="section__subtitle">Hành trình học tập</span>
+        <!-- Qualifications Section -->
+        <section class="qualification section" id="qualifications">
+            <h2 class="section__title">Qualifications</h2>
+            <span class="section__subtitle">Education / Experience</span>
 
             <div class="qualification__container container">
-                <div class="qualification__tabs">
-                    <div class="qualification__button button--flex qualification__active" data-target="#education-content">
-                        <i class="fas fa-graduation-cap qualification__icon"></i>
-                        Học vấn
-                    </div>
+                <!-- Tab Navigation -->
+                <div class="qualification__tabs" role="tablist" aria-label="Qualifications">
+                    <button class="qualification__tab qualification__tab--active"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="education-panel"
+                            id="education-tab"
+                            data-target="education"
+                            tabindex="0">
+                        <i class="fas fa-graduation-cap qualification__icon" aria-hidden="true"></i>
+                        <span>Education</span>
+                    </button>
+
+                    <button class="qualification__tab"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="experience-panel"
+                            id="experience-tab"
+                            data-target="experience"
+                            tabindex="-1">
+                        <i class="fas fa-briefcase qualification__icon" aria-hidden="true"></i>
+                        <span>Experience</span>
+                    </button>
                 </div>
 
-                <div class="qualification__sections">
-                    <div class="qualification__content qualification__active" data-content id="education-content">
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">Cử nhân Khoa học Máy tính</h3>
-                                <span class="qualification__subtitle">Đại học ABC</span>
-                                <div class="qualification__calendar">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    2021 - 2025
+                <!-- Tab Panels -->
+                <div class="qualification__panels">
+                    <!-- Education Panel -->
+                    <div class="qualification__panel qualification__panel--active"
+                         role="tabpanel"
+                         aria-labelledby="education-tab"
+                         id="education-panel"
+                         tabindex="0">
+                        <div class="qualification__content">
+                            <div class="qualification__list">
+                                <div class="qualification__item">
+                                    <div class="qualification__info">
+                                        <h3 class="qualification__title">Bachelor of Computer Science, Major in Data Science</h3>
+                                        <span class="qualification__subtitle">The Open University, Ho Chi Minh City</span>
+                                        <div class="qualification__calendar">
+                                            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                                            2021 – 2025
+                                        </div>
+                                        <div class="qualification__skills">
+                                            <span class="qualification__tag">Python</span>
+                                            <span class="qualification__tag">Java</span>
+                                            <span class="qualification__tag">ETL</span>
+                                            <span class="qualification__tag">Web Development</span>
+                                            <span class="qualification__tag">Database Admin</span>
+                                            <span class="qualification__tag">Data Mining</span>
+                                            <span class="qualification__tag">Data Science</span>
+                                            <span class="qualification__tag">Big Data</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="qualification__item">
+                                    <div class="qualification__info">
+                                        <h3 class="qualification__title">Ba Ria High School</h3>
+                                        <span class="qualification__subtitle">Ba Ria – Vung Tau</span>
+                                        <div class="qualification__calendar">
+                                            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                                            2021
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-
-                        <div class="qualification__data">
-                            <div></div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title">Chứng chỉ Data Engineering</h3>
-                                <span class="qualification__subtitle">Coursera - Google Cloud</span>
-                                <div class="qualification__calendar">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    2023
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">AWS Certified Solutions Architect</h3>
-                                <span class="qualification__subtitle">Amazon Web Services</span>
-                                <div class="qualification__calendar">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    2024
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
+                            <div class="qualification__timeline">
+                                <div class="qualification__timeline-line"></div>
+                                <div class="qualification__timeline-dot"></div>
+                                <div class="qualification__timeline-dot"></div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Experience Section -->
-        <section class="qualification section" id="experience">
-            <h2 class="section__title">Kinh nghiệm</h2>
-            <span class="section__subtitle">Hành trình nghề nghiệp</span>
-
-            <div class="qualification__container container">
-                <div class="qualification__tabs">
-                    <div class="qualification__button button--flex qualification__active" data-target="#experience-content">
-                        <i class="fas fa-briefcase qualification__icon"></i>
-                        Kinh nghiệm
-                    </div>
-                </div>
-
-                <div class="qualification__sections">
-                    <div class="qualification__content qualification__active" data-content id="experience-content">
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">Data Analyst Intern</h3>
-                                <span class="qualification__subtitle">Công ty XYZ</span>
-                                <div class="qualification__calendar">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    2024 - Hiện tại
-                                </div>
+                    <!-- Experience Panel -->
+                    <div class="qualification__panel"
+                         role="tabpanel"
+                         aria-labelledby="experience-tab"
+                         id="experience-panel"
+                         tabindex="0">
+                        <div class="qualification__empty">
+                            <div class="qualification__empty-icon">
+                                <i class="fas fa-briefcase"></i>
                             </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-
-                        <div class="qualification__data">
-                            <div></div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title">Python Developer</h3>
-                                <span class="qualification__subtitle">Freelance</span>
-                                <div class="qualification__calendar">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    2023 - 2024
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">Research Assistant</h3>
-                                <span class="qualification__subtitle">Đại học ABC</span>
-                                <div class="qualification__calendar">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    2022 - 2023
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
+                            <h3 class="qualification__empty-title">No professional experience yet</h3>
+                            <p class="qualification__empty-text">Currently building skills through personal projects and education. Check out my projects below to see what I've been working on!</p>
+                            <a href="#projects" class="qualification__empty-link">
+                                <i class="fas fa-arrow-down"></i>
+                                View Projects
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -49,24 +49,110 @@ skillsHeader.forEach((el) =>{
 })
 
 /*==================== QUALIFICATION TABS ====================*/
-const tabs = document.querySelectorAll('[data-target]'),
-      tabContents = document.querySelectorAll('[data-content]')
+const qualificationTabs = document.querySelectorAll('.qualification__tab[role="tab"]')
+const qualificationPanels = document.querySelectorAll('.qualification__panel[role="tabpanel"]')
 
-tabs.forEach(tab =>{
-    tab.addEventListener('click', () =>{
-        const target = document.querySelector(tab.dataset.target)
+// Function to switch tabs
+function switchQualificationTab(targetTab) {
+    const targetId = targetTab.dataset.target
+    const targetPanel = document.getElementById(targetId + '-panel')
 
-        tabContents.forEach(tabContent =>{
-            tabContent.classList.remove('qualification__active')
-        })
-        target.classList.add('qualification__active')
+    // Remove active state from all tabs
+    qualificationTabs.forEach(tab => {
+        tab.classList.remove('qualification__tab--active')
+        tab.setAttribute('aria-selected', 'false')
+        tab.setAttribute('tabindex', '-1')
+    })
 
-        tabs.forEach(tab =>{
-            tab.classList.remove('qualification__active')
-        })
-        tab.classList.add('qualification__active')
+    // Remove active state from all panels
+    qualificationPanels.forEach(panel => {
+        panel.classList.remove('qualification__panel--active')
+    })
+
+    // Activate target tab and panel
+    targetTab.classList.add('qualification__tab--active')
+    targetTab.setAttribute('aria-selected', 'true')
+    targetTab.setAttribute('tabindex', '0')
+    targetTab.focus()
+
+    if (targetPanel) {
+        targetPanel.classList.add('qualification__panel--active')
+    }
+
+    // Update URL hash
+    window.history.replaceState(null, null, '#' + targetId)
+}
+
+// Add click event listeners
+qualificationTabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+        e.preventDefault()
+        switchQualificationTab(tab)
+    })
+
+    // Add keyboard navigation
+    tab.addEventListener('keydown', (e) => {
+        const currentIndex = Array.from(qualificationTabs).indexOf(tab)
+        let targetTab = null
+
+        switch (e.key) {
+            case 'Enter':
+            case ' ':
+                e.preventDefault()
+                switchQualificationTab(tab)
+                break
+            case 'ArrowLeft':
+            case 'ArrowUp':
+                e.preventDefault()
+                const prevIndex = currentIndex === 0 ? qualificationTabs.length - 1 : currentIndex - 1
+                targetTab = qualificationTabs[prevIndex]
+                switchQualificationTab(targetTab)
+                break
+            case 'ArrowRight':
+            case 'ArrowDown':
+                e.preventDefault()
+                const nextIndex = currentIndex === qualificationTabs.length - 1 ? 0 : currentIndex + 1
+                targetTab = qualificationTabs[nextIndex]
+                switchQualificationTab(targetTab)
+                break
+        }
     })
 })
+
+// Initialize on page load
+function initializeQualificationTabs() {
+    const hash = window.location.hash.replace('#', '')
+    let targetTab = null
+
+    if (hash === 'education' || hash === 'experience') {
+        targetTab = document.querySelector(`[data-target="${hash}"]`)
+    }
+
+    // Default to education tab if no valid hash
+    if (!targetTab) {
+        targetTab = document.querySelector('[data-target="education"]')
+    }
+
+    if (targetTab) {
+        switchQualificationTab(targetTab)
+    }
+}
+
+// Handle hash changes
+window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.replace('#', '')
+    if (hash === 'education' || hash === 'experience') {
+        const targetTab = document.querySelector(`[data-target="${hash}"]`)
+        if (targetTab) {
+            switchQualificationTab(targetTab)
+        }
+    }
+})
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', initializeQualificationTabs)
+
+
 
 /*==================== PORTFOLIO SWIPER  ====================*/
 let swiperPortfolio = new Swiper(".portfolio__container", {
