@@ -130,29 +130,40 @@ const selectedIcon = localStorage.getItem('selected-icon')
 
 // We obtain the current theme that the interface has by validating the dark-theme class
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'fa-moon' : 'fa-sun'
+const getCurrentIcon = () => themeButton.classList.contains('fa-sun') ? 'fa-sun' : 'fa-moon'
 
-// We validate if the user previously chose a topic
+// Initialize theme based on saved preference or default to light
 if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
   document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-  themeButton.classList[selectedIcon === 'fa-moon' ? 'add' : 'remove'](iconTheme)
+  // Set correct icon based on theme
+  if (selectedTheme === 'dark') {
+    themeButton.classList.remove('fa-moon')
+    themeButton.classList.add('fa-sun')
+  } else {
+    themeButton.classList.remove('fa-sun')
+    themeButton.classList.add('fa-moon')
+  }
+} else {
+  // Default to light theme with moon icon
+  themeButton.classList.remove('fa-sun')
+  themeButton.classList.add('fa-moon')
 }
 
 // Activate / deactivate the theme manually with the button
 if (themeButton) {
     themeButton.addEventListener('click', () => {
-        // Add or remove the dark / icon theme
+        // Toggle theme
         document.body.classList.toggle(darkTheme)
-        themeButton.classList.toggle(iconTheme)
 
-        // Change icon between moon and sun
-        if (themeButton.classList.contains('fa-sun')) {
-            themeButton.classList.remove('fa-sun')
-            themeButton.classList.add('fa-moon')
-        } else {
+        // Change icon based on current theme
+        if (document.body.classList.contains(darkTheme)) {
+            // Dark theme active - show sun icon
             themeButton.classList.remove('fa-moon')
             themeButton.classList.add('fa-sun')
+        } else {
+            // Light theme active - show moon icon
+            themeButton.classList.remove('fa-sun')
+            themeButton.classList.add('fa-moon')
         }
 
         // We save the theme and the current icon that the user chose

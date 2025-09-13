@@ -18,7 +18,7 @@
     --text-color: hsl(var(--hue-color), 8%, 45%);
     --text-color-light: hsl(var(--hue-color), 8%, 65%);
     --input-color: hsl(var(--hue-color), 70%, 96%);
-    --body-color: hsl(var(--hue-color), 60%, 99%);
+    --body-color: hsl(var(--hue-color), 20%, 94%);
     --container-color: #fff;
     --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
@@ -30,8 +30,8 @@
     --big-font-size: 2rem;
     --h1-font-size: 1.5rem;
     --h2-font-size: 1.25rem;
-    --h3-font-size: 1.125rem;
-    --normal-font-size: .938rem;
+    --h3-font-size: 1.1rem;
+    --normal-font-size: .95rem;
     --small-font-size: .813rem;
     --smaller-font-size: .75rem;
 
@@ -80,7 +80,7 @@ body.dark-theme {
     --title-color: hsl(var(--hue-color), 8%, 95%);
     --text-color: hsl(var(--hue-color), 8%, 75%);
     --input-color: hsl(var(--hue-color), 29%, 16%);
-    --body-color: hsl(var(--hue-color), 28%, 12%);
+    --body-color: hsl(var(--hue-color), 15%, 18%);
     --container-color: hsl(var(--hue-color), 29%, 16%);
     --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
@@ -169,11 +169,15 @@ img {
 
 /*==================== NAV ====================*/
 .nav {
-    max-width: 968px;
+    max-width: 1152px;
     height: var(--header-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 .nav__logo {
@@ -198,7 +202,7 @@ img {
 }
 
 .nav__logo-name {
-    font-size: var(--h3-font-size);
+    font-size: var(--normal-font-size);
     font-weight: var(--font-semi-bold);
 }
 
@@ -256,7 +260,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: var(--small-font-size);
+    font-size: var(--normal-font-size);
     color: var(--title-color);
     font-weight: var(--font-medium);
 }
@@ -304,7 +308,7 @@ img {
     gap: 2rem;
     padding-top: 1.5rem;
     /* Use container padding; avoid overriding left spacing */
-    min-height: calc(100vh - var(--header-height));
+    min-height: 70vh;
 }
 
 .home__data {
@@ -1084,6 +1088,11 @@ img {
         padding-right: 1rem;
     }
 
+    .nav {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
     .nav__menu {
         padding: 2rem .25rem 4rem;
     }
@@ -1153,6 +1162,11 @@ img {
 @media screen and (min-width: 768px) {
     .container {
         padding-left: 2.5rem; /* equivalent to md:px-10 (40px) */
+        padding-right: 2.5rem;
+    }
+
+    .nav {
+        padding-left: 2.5rem;
         padding-right: 2.5rem;
     }
 
@@ -1280,6 +1294,11 @@ img {
     .main,
     .footer__container {
         padding: 0;
+    }
+
+    .nav {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .home__blob {
