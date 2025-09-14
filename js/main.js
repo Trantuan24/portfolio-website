@@ -79,14 +79,19 @@ function switchQualificationTab(targetTab) {
         targetPanel.classList.add('qualification__panel--active')
     }
 
-    // Update URL hash
-    window.history.replaceState(null, null, '#' + targetId)
+    // Only update URL hash if user explicitly clicked a tab
+    // Don't update hash during initialization to prevent auto-scrolling
+    if (targetTab && targetTab.getAttribute('data-clicked') === 'true') {
+        window.history.replaceState(null, null, '#' + targetId)
+        targetTab.removeAttribute('data-clicked')
+    }
 }
 
 // Add click event listeners
 qualificationTabs.forEach(tab => {
     tab.addEventListener('click', (e) => {
         e.preventDefault()
+        tab.setAttribute('data-clicked', 'true')
         switchQualificationTab(tab)
     })
 
@@ -124,18 +129,15 @@ function initializeQualificationTabs() {
     const hash = window.location.hash.replace('#', '')
     let targetTab = null
 
+    // Only switch tabs if there's a specific hash for education or experience
     if (hash === 'education' || hash === 'experience') {
         targetTab = document.querySelector(`[data-target="${hash}"]`)
+        if (targetTab) {
+            switchQualificationTab(targetTab)
+        }
     }
-
-    // Default to education tab if no valid hash
-    if (!targetTab) {
-        targetTab = document.querySelector('[data-target="education"]')
-    }
-
-    if (targetTab) {
-        switchQualificationTab(targetTab)
-    }
+    // Don't auto-switch to education tab if no hash is present
+    // The default active state is already set in HTML
 }
 
 // Handle hash changes
