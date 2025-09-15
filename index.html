@@ -568,92 +568,141 @@
         </section>
 
         <!-- Projects Section -->
-        <section class="portfolio section" id="projects">
-            <h2 class="section__title">Dự án</h2>
-            <span class="section__subtitle">Các dự án gần đây</span>
-
-            <div class="portfolio__container container swiper-container">
-                <div class="swiper-wrapper">
-                    <!-- Project 1 -->
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="assets/img/portfolio1.jpg" alt="" class="portfolio__img">
-
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">Real-time Data Pipeline</h3>
-                            <p class="portfolio__description">
-                                Xây dựng pipeline xử lý dữ liệu real-time sử dụng Apache Kafka và Spark Streaming
-                                để phân tích dữ liệu từ social media.
-                            </p>
-                            <div class="portfolio__technologies">
-                                <span class="portfolio__tech">Python</span>
-                                <span class="portfolio__tech">Apache Kafka</span>
-                                <span class="portfolio__tech">Spark</span>
-                                <span class="portfolio__tech">AWS</span>
-                            </div>
-                            <a href="#" class="button button--flex button--small portfolio__button">
-                                Demo
-                                <i class="fas fa-arrow-right button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="assets/img/portfolio2.jpg" alt="" class="portfolio__img">
-
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">ETL Data Warehouse</h3>
-                            <p class="portfolio__description">
-                                Thiết kế và triển khai ETL pipeline để xây dựng data warehouse từ nhiều nguồn dữ liệu
-                                khác nhau sử dụng Apache Airflow.
-                            </p>
-                            <div class="portfolio__technologies">
-                                <span class="portfolio__tech">Python</span>
-                                <span class="portfolio__tech">Airflow</span>
-                                <span class="portfolio__tech">PostgreSQL</span>
-                                <span class="portfolio__tech">Docker</span>
-                            </div>
-                            <a href="#" class="button button--flex button--small portfolio__button">
-                                Demo
-                                <i class="fas fa-arrow-right button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="assets/img/portfolio3.jpg" alt="" class="portfolio__img">
-
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">Big Data Analytics Platform</h3>
-                            <p class="portfolio__description">
-                                Phát triển platform phân tích big data sử dụng Hadoop ecosystem để xử lý
-                                và phân tích dữ liệu lớn từ e-commerce.
-                            </p>
-                            <div class="portfolio__technologies">
-                                <span class="portfolio__tech">Hadoop</span>
-                                <span class="portfolio__tech">Hive</span>
-                                <span class="portfolio__tech">Spark</span>
-                                <span class="portfolio__tech">MongoDB</span>
-                            </div>
-                            <a href="#" class="button button--flex button--small portfolio__button">
-                                Demo
-                                <i class="fas fa-arrow-right button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
+        <section class="projects section" id="projects">
+            <div class="projects__container container">
+                <!-- Header -->
+                <div class="projects__header">
+                    <h2 class="projects__title">Projects</h2>
+                    <h3 class="projects__subtitle">Data & ML Projects</h3>
                 </div>
 
-                <!-- Add arrows -->
-                <div class="swiper-button-next">
-                    <i class="fas fa-angle-right swiper-portfolio-icon"></i>
-                </div>
-                <div class="swiper-button-prev">
-                    <i class="fas fa-angle-left swiper-portfolio-icon"></i>
-                </div>
+                <!-- Carousel Container -->
+                <div class="projects__carousel">
+                    <!-- Navigation Arrows -->
+                    <button class="projects__nav projects__nav--prev" id="projects-prev" aria-label="Previous project">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="projects__nav projects__nav--next" id="projects-next" aria-label="Next project">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
 
-                <!-- Add pagination -->
-                <div class="swiper-pagination"></div>
+                    <!-- Projects Wrapper -->
+                    <div class="projects__wrapper" id="projects-wrapper">
+                        <!-- Project 1: Automated Weather Collection -->
+                        <div class="projects__slide projects__slide--active">
+                            <div class="projects__content">
+                                <div class="projects__image">
+                                    <img src="assets/img/architecture-streampluse-v1.png" alt="Automated Weather Collection ETL Pipeline Architecture" class="projects__img">
+                                </div>
+                                <div class="projects__info">
+                                    <h4 class="projects__project-title">
+                                        <i class="fas fa-cloud-sun projects__title-icon"></i>
+                                        Automated Weather Collection
+                                    </h4>
+                                    <div class="projects__skills">
+                                        <span class="projects__skill">Apache Airflow</span>
+                                        <span class="projects__skill">Python</span>
+                                        <span class="projects__skill">PostgreSQL</span>
+                                        <span class="projects__skill">Docker & Docker Compose</span>
+                                        <span class="projects__skill">Pandas</span>
+                                    </div>
+                                    <p class="projects__description">
+                                        ETL pipeline that automatically collects and processes weather data from 20 major Vietnamese cities using OpenWeatherMap API. Orchestrated with Airflow, runs every 6 hours, storing data in PostgreSQL and JSONL files.
+                                    </p>
+                                    <div class="projects__actions">
+                                        <a href="https://github.com/Trantuan24/Automated_weather_collection" target="_blank" rel="noopener noreferrer" class="projects__btn projects__btn--demo">
+                                            Demo <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                        <a href="https://github.com/Trantuan24/Automated_weather_collection" target="_blank" rel="noopener noreferrer" class="projects__btn projects__btn--repo">
+                                            Repository <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: JobInsight Data Pipeline -->
+                        <div class="projects__slide">
+                            <div class="projects__content">
+                                <div class="projects__image">
+                                    <img src="assets/img/architecture-streampluse-v1.png" alt="JobInsight Data Pipeline Architecture" class="projects__img">
+                                </div>
+                                <div class="projects__info">
+                                    <h4 class="projects__project-title">
+                                        <i class="fas fa-briefcase projects__title-icon"></i>
+                                        JobInsight Data Pipeline
+                                    </h4>
+                                    <div class="projects__skills">
+                                        <span class="projects__skill">Python</span>
+                                        <span class="projects__skill">Apache Airflow</span>
+                                        <span class="projects__skill">PostgreSQL</span>
+                                        <span class="projects__skill">DuckDB</span>
+                                        <span class="projects__skill">Docker & Docker Compose</span>
+                                        <span class="projects__skill">Playwright</span>
+                                        <span class="projects__skill">BeautifulSoup</span>
+                                        <span class="projects__skill">Pandas</span>
+                                    </div>
+                                    <p class="projects__description">
+                                        Enterprise-grade 3-phase ETL platform that transforms Vietnamese job market data into actionable insights. Crawls TopCV job postings, processes through sophisticated pipelines, and creates a dimensional data warehouse for analytics.
+                                    </p>
+                                    <div class="projects__actions">
+                                        <a href="https://github.com/Trantuan24/JobInsight_Data_Pipeline" target="_blank" rel="noopener noreferrer" class="projects__btn projects__btn--demo">
+                                            Demo <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                        <a href="https://github.com/Trantuan24/JobInsight_Data_Pipeline" target="_blank" rel="noopener noreferrer" class="projects__btn projects__btn--repo">
+                                            Repository <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3: StreamPulse v1 -->
+                        <div class="projects__slide">
+                            <div class="projects__content">
+                                <div class="projects__image">
+                                    <img src="assets/img/architecture-streampluse-v1.png" alt="StreamPulse v1 Real-time Data Pipeline Architecture" class="projects__img">
+                                </div>
+                                <div class="projects__info">
+                                    <h4 class="projects__project-title">
+                                        <i class="fas fa-stream projects__title-icon"></i>
+                                        StreamPulse v1 Single Source Metrics
+                                    </h4>
+                                    <div class="projects__skills">
+                                        <span class="projects__skill">Python</span>
+                                        <span class="projects__skill">Apache Kafka</span>
+                                        <span class="projects__skill">Apache Flink</span>
+                                        <span class="projects__skill">Redis</span>
+                                        <span class="projects__skill">FastAPI</span>
+                                        <span class="projects__skill">Docker & Docker Compose</span>
+                                        <span class="projects__skill">Prometheus</span>
+                                        <span class="projects__skill">Grafana</span>
+                                    </div>
+                                    <p class="projects__description">
+                                        Production-grade real-time data pipeline for trip analytics. Features modern streaming architecture with Kafka messaging, Flink processing, Redis serving, and FastAPI exposure, monitored with Prometheus and Grafana.
+                                    </p>
+                                    <div class="projects__actions">
+                                        <a href="https://github.com/Trantuan24/StreamPulse-v1-Single-Source-Metrics" target="_blank" rel="noopener noreferrer" class="projects__btn projects__btn--demo">
+                                            Demo <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                        <a href="https://github.com/Trantuan24/StreamPulse-v1-Single-Source-Metrics" target="_blank" rel="noopener noreferrer" class="projects__btn projects__btn--repo">
+                                            Repository <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Pagination Dots -->
+                    <div class="projects__pagination">
+                        <button class="projects__dot projects__dot--active" data-slide="0" aria-label="Go to project 1"></button>
+                        <button class="projects__dot" data-slide="1" aria-label="Go to project 2"></button>
+                        <button class="projects__dot" data-slide="2" aria-label="Go to project 3"></button>
+                    </div>
+                </div>
             </div>
         </section>
 

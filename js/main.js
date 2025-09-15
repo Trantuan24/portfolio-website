@@ -156,19 +156,83 @@ document.addEventListener('DOMContentLoaded', initializeQualificationTabs)
 
 
 
-/*==================== PORTFOLIO SWIPER  ====================*/
-let swiperPortfolio = new Swiper(".portfolio__container", {
-    cssMode: true,
-    loop: true,
+/*==================== PROJECTS CAROUSEL ====================*/
+class ProjectsCarousel {
+    constructor() {
+        this.currentSlide = 0;
+        this.slides = document.querySelectorAll('.projects__slide');
+        this.dots = document.querySelectorAll('.projects__dot');
+        this.prevBtn = document.getElementById('projects-prev');
+        this.nextBtn = document.getElementById('projects-next');
+        this.totalSlides = this.slides.length;
 
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
+        this.init();
+    }
+
+    init() {
+        // Add event listeners
+        this.prevBtn.addEventListener('click', () => this.prevSlide());
+        this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+        // Add event listeners for pagination dots
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goToSlide(index));
+        });
+
+        // Auto-play functionality (optional)
+        this.startAutoPlay();
+
+        // Pause auto-play on hover
+        const carousel = document.querySelector('.projects__carousel');
+        carousel.addEventListener('mouseenter', () => this.stopAutoPlay());
+        carousel.addEventListener('mouseleave', () => this.startAutoPlay());
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.prevSlide();
+            if (e.key === 'ArrowRight') this.nextSlide();
+        });
+    }
+
+    goToSlide(slideIndex) {
+        // Remove active class from current slide and dot
+        this.slides[this.currentSlide].classList.remove('projects__slide--active');
+        this.dots[this.currentSlide].classList.remove('projects__dot--active');
+
+        // Update current slide index
+        this.currentSlide = slideIndex;
+
+        // Add active class to new slide and dot
+        this.slides[this.currentSlide].classList.add('projects__slide--active');
+        this.dots[this.currentSlide].classList.add('projects__dot--active');
+    }
+
+    nextSlide() {
+        const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+        this.goToSlide(nextIndex);
+    }
+
+    prevSlide() {
+        const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+        this.goToSlide(prevIndex);
+    }
+
+    startAutoPlay() {
+        this.autoPlayInterval = setInterval(() => {
+            this.nextSlide();
+        }, 5000); // Change slide every 5 seconds
+    }
+
+    stopAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+        }
+    }
+}
+
+// Initialize the carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new ProjectsCarousel();
 });
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
