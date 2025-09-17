@@ -1471,7 +1471,7 @@ img {
 }
 
 .contactV2__submit-icon {
-    margin-left: 0.5rem;
+    margin-left: 0.25rem;
     width: 24px;
     height: 24px;
     transition: transform 0.3s ease;
@@ -1481,8 +1481,12 @@ img {
     fill: white !important;
 }
 
+.contactV2__submit:hover {
+    transform: translateY(-2px);
+}
+
 .contactV2__submit:hover .contactV2__submit-icon {
-    transform: translateX(4px);
+    transform: translateX(4px) translateY(-2px);
 }
 
 .contactV2__field input::placeholder,
@@ -1612,23 +1616,37 @@ img {
 /*========== SCROLL UP ==========*/
 .scrollup {
     position: fixed;
-    right: 1rem;
+    right: 1.5rem;
     bottom: -20%;
-    background-color: var(--first-color);
-    opacity: .8;
-    padding: 0 .3rem;
-    border-radius: .4rem;
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    opacity: .9;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
     z-index: var(--z-tooltip);
-    transition: .4s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .scrollup:hover {
-    background-color: var(--first-color-alt);
+    background: linear-gradient(135deg, var(--first-color-alt), var(--first-color));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    opacity: 1;
 }
 
 .scrollup__icon {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #FFF;
+    transition: transform 0.3s ease;
+}
+
+.scrollup:hover .scrollup__icon {
+    transform: translateY(-2px);
 }
 
 /* Show scroll */

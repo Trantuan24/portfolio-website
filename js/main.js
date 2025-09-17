@@ -236,7 +236,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-// Tạm thời lược bỏ logic scroll active link
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive(){
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50;
+        const sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+        }
+    })
+}
 
 /*==================== BASIC SCROLL EFFECTS ====================*/
 // Giữ lại chỉ scroll header và scroll up cơ bản
@@ -251,6 +267,7 @@ function scrollUp(){
     if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
+window.addEventListener('scroll', scrollActive)
 
 /*==================== DARK LIGHT THEME ====================*/
 const themeButton = document.getElementById('theme-button')
