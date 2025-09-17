@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Data Engineer Intern</title>
     <link rel="stylesheet" href="styles/main.css">
-    <!-- Preload avatar image to improve LCP -->
-    <link rel="preload" as="image" href="assets/img/profile.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -40,9 +39,7 @@
                         <a href="#contact" class="nav__link">Contact</a>
                     </li>
                 </ul>
-                <div class="nav__close" id="nav-close">
-                    <i class="fas fa-times"></i>
-                </div>
+
             </div>
 
             <div class="nav__btns">
@@ -707,66 +704,75 @@
         </section>
 
         <!-- Contact Section -->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Liên hệ</h2>
-            <span class="section__subtitle">Hãy liên hệ với tôi</span>
+        <section class="contact section contact--v2" id="contact" aria-labelledby="contact-title">
+            <div class="contact__header">
+                <h2 class="contact__title" id="contact-title">Contact</h2>
+                <p class="contact__subtitle">Get In Touch</p>
+            </div>
 
-            <div class="contact__container container grid">
-                <div>
-                    <div class="contact__information">
-                        <i class="fas fa-phone contact__icon"></i>
-
-                        <div>
-                            <h3 class="contact__title">Gọi cho tôi</h3>
-                            <span class="contact__subtitle">+84 123 456 789</span>
+            <div class="contactV2__container container">
+                <!-- Left: Contact Info -->
+                <div class="contactV2__info" aria-label="Contact information">
+                    <div class="contactV2__item">
+                        <div class="contactV2__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                <path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M22 7l-10 7L2 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <div class="contactV2__content">
+                            <div class="contactV2__label">Email</div>
+                            <div class="contactV2__value">duytuan2412k4@gmail.com</div>
                         </div>
                     </div>
 
-                    <div class="contact__information">
-                        <i class="fas fa-envelope contact__icon"></i>
-
-                        <div>
-                            <h3 class="contact__title">Email</h3>
-                            <span class="contact__subtitle">your.email@example.com</span>
+                    <div class="contactV2__item">
+                        <div class="contactV2__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                <path d="M12 21s-6-5.373-6-10a6 6 0 1 1 12 0c0 4.627-6 10-6 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="11" r="2" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                            </svg>
                         </div>
-                    </div>
-
-                    <div class="contact__information">
-                        <i class="fas fa-map-marker-alt contact__icon"></i>
-
-                        <div>
-                            <h3 class="contact__title">Địa chỉ</h3>
-                            <span class="contact__subtitle">Hà Nội, Việt Nam</span>
+                        <div class="contactV2__content">
+                            <div class="contactV2__label">Location</div>
+                            <div class="contactV2__value">Ha Noi, VietNam</div>
                         </div>
                     </div>
                 </div>
 
-                <form action="" class="contact__form grid">
-                    <div class="contact__inputs grid">
-                        <div class="contact__content">
-                            <label for="" class="contact__label">Tên</label>
-                            <input type="text" class="contact__input">
+                <!-- Right: Contact Form -->
+                <form class="contactV2__form" aria-label="Contact form" novalidate>
+                    <div class="contactV2__row">
+                        <div class="contactV2__field">
+                            <label for="contact-name" class="contactV2__label">Name</label>
+                            <input type="text" name="name" id="contact-name" autocomplete="name" class="contactV2__input" placeholder="">
                         </div>
-                        <div class="contact__content">
-                            <label for="" class="contact__label">Email</label>
-                            <input type="email" class="contact__input">
+                        <div class="contactV2__field">
+                            <label for="contact-email" class="contactV2__label">Email</label>
+                            <input type="email" name="email" id="contact-email" autocomplete="email" class="contactV2__input" placeholder="">
                         </div>
-                    </div>
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Dự án</label>
-                        <input type="text" class="contact__input">
-                    </div>
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Tin nhắn</label>
-                        <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
                     </div>
 
-                    <div>
-                        <a href="#" class="button button--flex">
-                            Gửi tin nhắn
-                            <i class="fas fa-paper-plane button__icon"></i>
-                        </a>
+                    <div class="contactV2__field">
+                        <label for="contact-subject" class="contactV2__label">Subject</label>
+                        <input type="text" name="subject" id="contact-subject" class="contactV2__input" placeholder="">
                     </div>
+
+                    <div class="contactV2__field contactV2__field--textarea">
+                        <label for="contact-message" class="contactV2__label">Message</label>
+                        <textarea name="message" id="contact-message" rows="7" class="contactV2__input" placeholder=""></textarea>
+                        <span class="contactV2__textarea-icon" aria-hidden="true">📝</span>
+                    </div>
+
+                    <button type="submit" class="contactV2__submit">
+                        <span>Send Message</span>
+                        <span class="contactV2__submit-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                <path d="M22 2L2 8.667l9.583 3.75L22 2z" fill="currentColor"></path>
+                                <path d="M11.583 12.417L15.333 22L22 2l-10.417 10.417z" fill="currentColor"></path>
+                            </svg>
+                        </span>
+                    </button>
                 </form>
             </div>
         </section>

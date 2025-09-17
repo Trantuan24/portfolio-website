@@ -236,37 +236,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-const sections = document.querySelectorAll('section[id]')
+// Tạm thời lược bỏ logic scroll active link
 
-function scrollActive(){
-    const scrollY = window.pageYOffset
-
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
-
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
-        }
-    })
-}
-window.addEventListener('scroll', scrollActive)
-
-/*==================== CHANGE BACKGROUND HEADER ====================*/ 
+/*==================== BASIC SCROLL EFFECTS ====================*/
+// Giữ lại chỉ scroll header và scroll up cơ bản
 function scrollHeader(){
     const nav = document.getElementById('header')
-    // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
     if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
 }
 window.addEventListener('scroll', scrollHeader)
 
-/*==================== SHOW SCROLL UP ====================*/ 
 function scrollUp(){
     const scrollUp = document.getElementById('scroll-up');
-    // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
     if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
@@ -340,93 +321,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /*==================== CONTACT FORM ====================*/
-const contactForm = document.querySelector('.contact__form');
-const contactInputs = document.querySelectorAll('.contact__input');
-
-// Add focus effect to contact inputs
-contactInputs.forEach(input => {
-    input.addEventListener('focus', () => {
-        input.parentNode.classList.add('contact__content--focus');
-    });
-    
-    input.addEventListener('blur', () => {
-        if (input.value === '') {
-            input.parentNode.classList.remove('contact__content--focus');
-        }
-    });
-});
-
-// Handle form submission (you can customize this)
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        
-        // Here you can add your form submission logic
-        // For now, we'll just show an alert
-        alert('Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi sớm nhất có thể.');
-        
-        // Reset form
-        contactForm.reset();
-        contactInputs.forEach(input => {
-            input.parentNode.classList.remove('contact__content--focus');
-        });
-    });
-}
+// Logic tạm thời được lược bỏ theo yêu cầu. Chỉ giữ UI, không xử lý submit/validate.
 
 /*==================== WAVE BUTTON ANIMATION ====================*/
-// Wave button with Web Animations API and reduced motion support
-const waveButton = document.querySelector('.home__wave-btn');
-
-if (waveButton) {
-    let isAnimating = false;
-
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const handleWaveClick = () => {
-        // Debounce: prevent new animations while one is running
-        if (isAnimating) return;
-
-        if (prefersReducedMotion) {
-            // Reduced motion alternative: quick opacity flash
-            isAnimating = true;
-            waveButton.animate([
-                { opacity: 1 },
-                { opacity: 0.7 },
-                { opacity: 1 }
-            ], {
-                duration: 200,
-                easing: 'ease-in-out'
-            }).addEventListener('finish', () => {
-                isAnimating = false;
-            });
-        } else {
-            // Full wave animation using WAAPI
-            isAnimating = true;
-            waveButton.animate([
-                { transform: 'rotate(0deg)' },
-                { transform: 'rotate(20deg)' },
-                { transform: 'rotate(-10deg)' },
-                { transform: 'rotate(0deg)' }
-            ], {
-                duration: 600,
-                easing: 'ease-in-out',
-                iterations: 1
-            }).addEventListener('finish', () => {
-                isAnimating = false;
-            });
-        }
-    };
-
-    // Add click and keyboard event listeners
-    waveButton.addEventListener('click', handleWaveClick);
-    waveButton.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            handleWaveClick();
-        }
-    });
-}
+// Logic animation tạm thời lược bỏ
