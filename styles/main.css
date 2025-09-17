@@ -1562,55 +1562,58 @@ img {
     padding-top: 2rem;
 }
 
-.footer__container {
-    row-gap: 3.5rem;
-}
-
 .footer__bg {
     background-color: var(--first-color-second);
-    padding: 2rem 0 3rem;
+    padding: 3rem 0 2rem;
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
 .footer__title {
-    font-size: var(--h1-font-size);
-    margin-bottom: var(--mb-0-25);
-}
-
-.footer__subtitle {
-    font-size: var(--small-font-size);
-}
-
-.footer__links {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.5rem;
-}
-
-.footer__link:hover {
-    color: var(--first-color-lighter);
+    font-size: var(--h2-font-size);
+    color: #FFF;
+    margin: 0;
+    font-weight: var(--font-medium);
 }
 
 .footer__social {
-    font-size: 1.25rem;
-    margin-right: var(--mb-1-5);
+    display: flex;
+    gap: 1.5rem;
 }
 
-.footer__social:hover {
-    color: var(--first-color-lighter);
+.footer__social-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFF;
+    font-size: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer__social-icon:hover,
+.footer__social-icon:focus {
+    background-color: #FFF;
+    color: var(--first-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .footer__copy {
-    font-size: var(--smaller-font-size);
+    font-size: var(--normal-font-size);
     text-align: center;
-    color: var(--text-color-light);
-    margin-top: var(--mb-3);
-}
-
-.footer__title,
-.footer__subtitle,
-.footer__link,
-.footer__social {
     color: #FFF;
+    margin: 0;
 }
 
 /*========== SCROLL UP ==========*/
@@ -1874,8 +1877,7 @@ img {
     .about__container,
     .skills__container,
     .projects__content,
-    .contact__container,
-    .footer__container {
+    .contact__container {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1922,8 +1924,7 @@ img {
     }
 
     .header,
-    .main,
-    .footer__container {
+    .main {
         padding: 0 1rem;
     }
 
@@ -2051,22 +2052,7 @@ img {
         font-size: var(--normal-font-size);
     }
 
-    .footer__container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .footer__bg {
-        padding: 3rem 0 3.5rem;
-    }
-    .footer__links {
-        flex-direction: row;
-        column-gap: 2rem;
-    }
-    .footer__socials {
-        justify-self: flex-end;
-    }
-    .footer__copy {
-        margin-top: 4.5rem;
-    }
+
 }
 
 /* For large devices */
