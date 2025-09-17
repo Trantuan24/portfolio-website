@@ -1470,6 +1470,21 @@ img {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
 }
 
+.contactV2__submit-icon {
+    margin-left: 0.5rem;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.contactV2__submit-icon svg {
+    fill: white !important;
+}
+
+.contactV2__submit:hover .contactV2__submit-icon {
+    transform: translateX(4px);
+}
+
 .contactV2__field input::placeholder,
 .contactV2__field textarea::placeholder {
     color: #9ca3af;
