@@ -2234,6 +2234,11 @@ img {
     .qualification__content {
         grid-template-columns: 1fr;
         gap: var(--mb-1-5);
+        min-height: auto;
+    }
+
+    .qualification__panels {
+        min-height: auto;
     }
 
     .qualification__timeline {
@@ -2244,6 +2249,7 @@ img {
         position: relative;
         padding-left: var(--mb-1-5);
         display: block;
+        margin-bottom: var(--mb-2);
     }
 
     .qualification__item::before {
@@ -2281,24 +2287,27 @@ img {
 
     .projects__image {
         order: 1 !important;
-        display: block !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
         width: 100% !important;
         margin-bottom: 1.5rem !important;
         visibility: visible !important;
         opacity: 1 !important;
         background-color: #f8f9fa !important;
         border-radius: 0.5rem !important;
-        min-height: 220px !important;
+        min-height: 250px !important;
         position: relative !important;
         z-index: 1000 !important;
         overflow: hidden !important;
+        padding: 1rem !important;
     }
 
     .projects__img {
         width: 100% !important;
         max-width: 100% !important;
         height: 220px !important;
-        object-fit: cover !important;
+        object-fit: contain !important;
         border-radius: 0.5rem !important;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
         display: block !important;
@@ -2306,8 +2315,8 @@ img {
         opacity: 1 !important;
         position: relative !important;
         z-index: 1001 !important;
-        background-color: #e9ecef !important;
-        min-height: 220px !important;
+        background-color: transparent !important;
+        margin: 0 auto !important;
         margin: 0 auto !important;
     }
 
@@ -2367,18 +2376,22 @@ img {
 
     .projects__image {
         margin-bottom: 1rem !important;
-        display: block !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
         visibility: visible !important;
         opacity: 1 !important;
         background-color: #f8f9fa !important;
         min-height: 200px !important;
         width: 100% !important;
         overflow: hidden !important;
+        border-radius: 0.5rem !important;
+        padding: 0.5rem !important;
     }
 
     .projects__img {
-        height: 200px !important;
-        object-fit: cover !important;
+        height: 180px !important;
+        object-fit: contain !important;
         width: 100% !important;
         display: block !important;
         visibility: visible !important;
