@@ -4,7 +4,6 @@ const navMenu = document.getElementById('nav-menu'),
       navClose = document.getElementById('nav-close')
 
 /*===== MENU SHOW =====*/
-/* Validate if constant exists */
 if(navToggle){
     navToggle.addEventListener('click', () =>{
         navMenu.classList.add('show-menu')
@@ -12,7 +11,6 @@ if(navToggle){
 }
 
 /*===== MENU HIDDEN =====*/
-/* Validate if constant exists */
 if(navClose){
     navClose.addEventListener('click', () =>{
         navMenu.classList.remove('show-menu')
@@ -22,30 +20,28 @@ if(navClose){
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link')
 
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show-menu')
-}
-navLink.forEach(n => n.addEventListener('click', linkAction))
+navLink.forEach(n => n.addEventListener('click', () => {
+    document.getElementById('nav-menu').classList.remove('show-menu')
+}))
 
 /*==================== ACCORDION SKILLS ====================*/
 const skillsContent = document.getElementsByClassName('skills__content'),
       skillsHeader = document.querySelectorAll('.skills__header')
 
-function toggleSkills(){
-    let itemClass = this.parentNode.className
+skillsHeader.forEach((el) => {
+    el.addEventListener('click', function() {
+        const itemClass = this.parentNode.className;
 
-    for(i = 0; i < skillsContent.length; i++){
-        skillsContent[i].className = 'skills__content skills__close'
-    }
-    if(itemClass === 'skills__content skills__close'){
-        this.parentNode.className = 'skills__content skills__open'
-    }
-}
+        // Close all skills sections
+        for(let i = 0; i < skillsContent.length; i++){
+            skillsContent[i].className = 'skills__content skills__close';
+        }
 
-skillsHeader.forEach((el) =>{
-    el.addEventListener('click', toggleSkills)
+        // Open clicked section if it was closed
+        if(itemClass === 'skills__content skills__close'){
+            this.parentNode.className = 'skills__content skills__open';
+        }
+    });
 })
 
 /*==================== QUALIFICATION TABS ====================*/
@@ -238,36 +234,36 @@ document.addEventListener('DOMContentLoaded', () => {
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
 
-function scrollActive(){
-    const scrollY = window.pageYOffset
 
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight
+
+
+// Combined scroll event handler for better performance
+window.addEventListener('scroll', () => {
+    const scrollY = window.pageYOffset;
+
+    // Header scroll effect
+    const nav = document.getElementById('header');
+    if(scrollY >= 80) nav.classList.add('scroll-header');
+    else nav.classList.remove('scroll-header');
+
+    // Scroll up button
+    const scrollUp = document.getElementById('scroll-up');
+    if(scrollY >= 560) scrollUp.classList.add('show-scroll');
+    else scrollUp.classList.remove('show-scroll');
+
+    // Active navigation link
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
         const sectionTop = current.offsetTop - 50;
-        const sectionId = current.getAttribute('id')
+        const sectionId = current.getAttribute('id');
 
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link');
+        } else {
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link');
         }
-    })
-}
-
-/*==================== BASIC SCROLL EFFECTS ====================*/
-// Giữ lại chỉ scroll header và scroll up cơ bản
-function scrollHeader(){
-    const nav = document.getElementById('header')
-    if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
-}
-window.addEventListener('scroll', scrollHeader)
-
-function scrollUp(){
-    const scrollUp = document.getElementById('scroll-up');
-    if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
-}
-window.addEventListener('scroll', scrollUp)
-window.addEventListener('scroll', scrollActive)
+    });
+})
 
 /*==================== DARK LIGHT THEME ====================*/
 const themeButton = document.getElementById('theme-button')
