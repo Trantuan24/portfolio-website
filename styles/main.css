@@ -2280,16 +2280,18 @@ img {
     }
 
     .projects__image {
-        order: 1;
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 1.5rem;
+        order: 1 !important;
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 1.5rem !important;
         visibility: visible !important;
         opacity: 1 !important;
-        background-color: #f8f9fa;
-        border-radius: 0.5rem;
-        min-height: 220px;
+        background-color: #f8f9fa !important;
+        border-radius: 0.5rem !important;
+        min-height: 220px !important;
+        position: relative !important;
+        z-index: 1000 !important;
+        overflow: hidden !important;
     }
 
     .projects__img {
@@ -2297,11 +2299,16 @@ img {
         max-width: 100% !important;
         height: 220px !important;
         object-fit: cover !important;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        position: relative !important;
+        z-index: 1001 !important;
+        background-color: #e9ecef !important;
+        min-height: 220px !important;
+        margin: 0 auto !important;
     }
 
     .projects__info {
@@ -2359,12 +2366,28 @@ img {
     }
 
     .projects__image {
-        margin-bottom: 1rem;
+        margin-bottom: 1rem !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        background-color: #f8f9fa !important;
+        min-height: 200px !important;
+        width: 100% !important;
+        overflow: hidden !important;
     }
 
     .projects__img {
-        height: 200px;
-        object-fit: cover;
+        height: 200px !important;
+        object-fit: cover !important;
+        width: 100% !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        background-color: #e9ecef !important;
+        border-radius: 0.5rem !important;
+        position: relative !important;
+        z-index: 999 !important;
+        margin: 0 auto !important;
     }
 }
 
