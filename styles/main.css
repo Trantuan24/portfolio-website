@@ -1887,6 +1887,56 @@ img {
 }
 
 /*==================== MEDIA QUERIES ====================*/
+/* For mobile devices - iPhone 11 and similar */
+@media screen and (max-width: 414px) {
+    .qualification__panels {
+        min-height: auto !important;
+    }
+
+    .qualification__content {
+        grid-template-columns: 1fr !important;
+        gap: var(--mb-1-5) !important;
+        min-height: auto !important;
+    }
+
+    .projects__content {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+        padding: 1.5rem !important;
+        min-height: auto !important;
+    }
+
+    .projects__image {
+        order: 1 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-bottom: 1.5rem !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        background-color: #f8f9fa !important;
+        border-radius: 0.5rem !important;
+        min-height: 250px !important;
+        padding: 1rem !important;
+    }
+
+    .projects__img {
+        width: 100% !important;
+        height: 220px !important;
+        object-fit: contain !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .projects__info {
+        order: 2 !important;
+    }
+}
+
 /* For small devices */
 @media screen and (max-width: 767px) {
     .container {
