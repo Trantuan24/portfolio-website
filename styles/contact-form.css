@@ -1,0 +1,128 @@
+/* Error states */
+.contactV2__input--error {
+    border-color: #e74c3c !important;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+.contactV2__error {
+    display: none;
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 300px;
+    max-width: 500px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateX(calc(100% + 20px));
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    border-left: 4px solid #3498db;
+}
+
+.notification--show {
+    transform: translateX(0);
+}
+
+.notification--success {
+    border-left-color: #27ae60;
+}
+
+.notification--error {
+    border-left-color: #e74c3c;
+}
+
+.notification__content {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 12px;
+}
+
+.notification__icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.notification--success .notification__icon {
+    color: #27ae60;
+}
+
+.notification--error .notification__icon {
+    color: #e74c3c;
+}
+
+.notification__message {
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.notification__close {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #7f8c8d;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.notification__close:hover {
+    background-color: #ecf0f1;
+}
+
+/* Dark theme support */
+.dark-theme .notification {
+    background: var(--container-color);
+    color: var(--text-color);
+}
+
+.dark-theme .notification__close:hover {
+    background-color: var(--text-color-light);
+}
+
+/* Form disabled state */
+.contactV2__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive notifications */
+@media screen and (max-width: 768px) {
+    .notification {
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+        max-width: none;
+        transform: translateY(calc(-100% - 20px));
+    }
+    .notification--show {
+        transform: translateY(0);
+    }
+}
