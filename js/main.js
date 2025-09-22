@@ -231,6 +231,25 @@ document.addEventListener('DOMContentLoaded', () => {
     new ProjectsCarousel();
 });
 
+/*==================== SKILLS LEVEL BADGES ====================*/
+function applySkillLevelBadges() {
+    const levelEls = document.querySelectorAll('.skills__number');
+    levelEls.forEach((el) => {
+        const txt = (el.textContent || '').trim().toLowerCase();
+        if (!txt) return;
+        el.classList.add('skills__level-badge');
+        if (txt.includes('beginner')) {
+            el.classList.add('is-beginner');
+        } else if (txt.includes('intermediate')) {
+            el.classList.add('is-intermediate');
+        } else if (txt.includes('in progress') || txt.includes('in-progress') || txt.includes('inprogress')) {
+            el.classList.add('is-in-progress');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', applySkillLevelBadges);
+
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
 

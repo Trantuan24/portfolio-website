@@ -866,7 +866,9 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
+    gap: 1rem;
+    padding: 0.6rem 0.25rem;
+    border-bottom: 1px dashed var(--first-color-lighter);
 }
 
 .skills__titles {
@@ -883,9 +885,36 @@ img {
 }
 
 .skills__number {
-    font-size: var(--small-font-size);
-    color: var(--text-color-light);
-    font-weight: var(--font-medium);
+    font-size: 0.72rem;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--first-color);
+    background: var(--first-color-lighter);
+    border: 1px solid var(--first-color-alt);
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    text-transform: none;
+    letter-spacing: .2px;
+}
+
+/* Level badge variants (applied via JS) */
+.skills__number.skills__level-badge.is-beginner {
+    color: #8e44ad;
+    background: rgba(142, 68, 173, 0.12);
+    border-color: rgba(142, 68, 173, 0.35);
+}
+
+.skills__number.skills__level-badge.is-intermediate {
+    color: #27ae60;
+    background: rgba(39, 174, 96, 0.12);
+    border-color: rgba(39, 174, 96, 0.35);
+}
+
+.skills__number.skills__level-badge.is-inprogress,
+.skills__number.skills__level-badge.is-in-progress {
+    color: #e67e22;
+    background: rgba(230, 126, 34, 0.12);
+    border-color: rgba(230, 126, 34, 0.35);
 }
 
 .skills__titles {
